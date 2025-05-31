@@ -1,0 +1,22 @@
+# Core deep learning framework
+torch==1.13.1
+torchvision==0.14.1
+
+# Computer vision
+opencv-python==4.7.0.72
+
+# Numerical and data processing
+numpy==1.23.5
+pandas==1.5.3
+scikit-learn==1.2.2
+joblib==1.2.0
+
+# Visualization
+matplotlib==3.6.2
+tqdm==4.64.1
+
+# Experiment tracking
+mlflow==2.5.1
+
+# Optional: Ultralytics (YOLO) if used
+ultralytics==8.0.20
