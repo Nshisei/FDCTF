@@ -1,0 +1,43 @@
+base:
+  filename: "/home/shisei/work/lstm/config/config1.yaml"
+  experiment_name: "ConvLSTM_fall_slip_1126"
+  run_name: "YOLO+ConvL+Angle"
+  output_csv_path: "/home/shisei/work/lstm/outputs/csvs/"
+  output_img_path: "/home/shisei/work/lstm/outputs/images/"
+
+
+train_set:
+  annotaiton_csv_path: "/mnt/d/mydatasets/fall_dataset/annotation_csv/fall_0713_annotation.csv"
+  train_video_dir: "/mnt/d/mydatasets/fall_dataset/fall_0713_split/train/*"
+  val_video_dir: "/mnt/d/mydatasets/fall_dataset/fall_0713_split/val/*"
+  event_annotation_csv_path: "/mnt/d/mydatasets/fall_dataset/annotation_csv/fall_0713_annotation.csv"
+  event_video_dir: "/mnt/d/mydatasets/fall_dataset/fall_0713_split/val/*"
+  classes: 
+    0: "usual"
+    1: "falling"
+    2: "fall"
+
+
+# 学習時のパラメータ
+parameters:
+  batch_size: 16
+  window_size: 32
+  class_num: 3
+  num_layers: 1
+  hidden_dim: 100
+  resnet_output_dim: 16
+  lr: 0.0005
+  image_f: true
+  motion_f: false
+  class_weight: true
+  transform: false
+  epochs: 5
+  preprocess_f: false
+
+# trainingに使用する特徴量
+features: [
+  "cls_prob_sitting",
+  "cls_prob_lying",
+  "cls_prob_standing",
+  "angle_abs_change"
+] 

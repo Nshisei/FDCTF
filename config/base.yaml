@@ -1,0 +1,64 @@
+base:
+  filename: "/home/shisei/work/lstm/config/base.yaml"
+  experiment_name: "ConvLSTM_fall_slip"
+  run_name: "basic_feature"
+  output_csv_path: "/home/shisei/work/lstm/outputs/csvs/"
+  output_img_path: "/home/shisei/work/lstm/outputs/images/"
+
+
+train_set:
+  annotaiton_csv_path: "/mnt/d/mydatasets/fall_dataset/annotation_csv/fall_0713_annotation.csv"
+  train_video_dir: "/mnt/d/mydatasets/fall_dataset/fall_0713_split/train/*"
+  val_video_dir: "/mnt/d/mydatasets/fall_dataset/fall_0713_split/val/*"
+  event_annotation_csv_path: "/mnt/d/mydatasets/fall_dataset/annotation_csv/fall_0713_annotation.csv"
+  event_video_dir: "/mnt/d/mydatasets/fall_dataset/fall_0713_split/val/*"
+  classes: 
+    0: "usual"
+    1: "falling"
+    2: "fall"
+
+
+# 学習時のパラメータ
+parameters:
+  batch_size: 16
+  window_size: 32
+  class_num: 3
+  num_layers: 1
+  hidden_dim: 100
+  resnet_output_dim: 16
+  lr: 0.0005
+  image_f: true
+  motion_f: false
+  class_weight: true
+  transform: false
+  epochs: 5
+  preprocess_f: true
+  jpg: true
+
+# trainingに使用する特徴量
+features: [
+  "cls_prob_sitting",
+  "cls_prob_lying",
+  "cls_prob_standing",
+  "body_aspect_change",
+  "angle_abs_increase",
+  "bed_iou",
+  "opt_mag_avg",
+  "body_aspect_change",
+  "angle_change",
+  "angle_abs_change",
+  "point_world_z_change",
+  "angle_90",
+  "angle_90_change",
+  "z_decrease",
+  "z_decrease_mean",
+  "aspect_increase",
+  "angle_abs_increase",
+  "aspect_change",
+  "aspect_change_mean",
+  "bed_iou",
+  "angle_change",
+  "angle_change_mean",
+  "head_speed",
+  "body_speed",
+] 
